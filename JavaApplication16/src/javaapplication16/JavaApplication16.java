@@ -3,20 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sewprojekt;
+package javaapplication16;
 
 /**
  *
  * @author eratro15
  */
-public class SewProjekt {
+public class JavaApplication16 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
     }
     
 }
