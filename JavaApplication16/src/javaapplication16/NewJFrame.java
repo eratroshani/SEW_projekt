@@ -172,7 +172,7 @@ public class NewJFrame extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(disconnect)
                             .addComponent(connect))))
-                .addContainerGap(232, Short.MAX_VALUE))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,6 +233,26 @@ public class NewJFrame extends javax.swing.JFrame {
         try {
             stmt_select = con.prepareStatement("SELECT * FROM kunde>?");
         } catch (SQLException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        try {
+            md=con.getMetaData();
+            
+            ResultSet tables=md.getTables(null, null, null, null);
+            ResultSet columns=md.getColumns(null, null, "kunde", null);
+                    while(tables.next()){
+                        String tname=tables.getString(3);
+                        System.out.println(tname);
+                    }
+                    while(columns.next()){
+                        String column=columns.getString(4);
+                        System.out.println(column);
+                    }
+            //stmt_select = con.prepareStatement("SELECT * FROM kunde>?");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
         
